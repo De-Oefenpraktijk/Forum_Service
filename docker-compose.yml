@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  api.forum:
+    image: ${DOCKER_REGISTRY-}forumapi
+    build:
+      context: .
+      dockerfile: Forum.API/Dockerfile
+
+  db.forum:
+    image: mysql
+
+volumes:
+  mysql_data:

@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  api.forum:
+    container_name: api.forum
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:KweetDbConnectionString=server=db.forum;database=ForumDb;user=development;password=development"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@service.rabbitmq:5672"
+    depends_on:
+        - db.forum
+    ports:
+        - "8000:80"
+
+  db.forum:
+    container_name: db.forum
+    environment:
+        MYSQL_ROOT_PASSWORD: "development"
+        MYSQL_USER: "development"
+        MYSQL_PASSWORD: "development"
+        MYSQL_DATABASE: "ForumDb"
+    restart: always
+    ports:
+        - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
