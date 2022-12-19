@@ -10,7 +10,7 @@ public class FormPost
 {
     public Guid Id { get; set; }
     public string Title { get; set; } = null!;
-    public string FormBody { get; set; } = null!;
+    public string FormBody { get; set; } = null!; 
     public string UserId { get; set; } = null!;
     public string UserName { get; set; } = null!;
 

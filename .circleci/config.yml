@@ -35,7 +35,7 @@ workflows:
       - azure-acr/build-and-push-image:
             login-server-name: oefenpraktijkregistry.azurecr.io
             registry-name: OefenpraktijkRegistry
-            repo: forum
+            repo: forumservice
             requires: 
               - test
             filters:
